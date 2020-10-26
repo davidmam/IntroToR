@@ -1,0 +1,1 @@
+boxplot(dataset$Height~dataset$Sport)
