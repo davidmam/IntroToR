@@ -1,0 +1,30 @@
+- Class: meta
+  Course: R_Programming_Alt
+  Lesson: Projects introduction
+  Author: David Martin
+  Type: Standard
+  Organization: University of Dundee
+  Version: 2.4.5
+
+- Class: text
+  Output: "This tutorial will take you through setting up and using RStudio Projects. When you see the elipsis (...) press the [ENTER] key to continue"
+
+- Class: text
+  Output: "In any investigation you will collect data, process it, derive results and produce outputs. Projects are a convenient way of managing your data and analysis"
+  
+- Class: text
+  Output: "Just as there is a recommended way to keep your lab journal, a Project should be kept in a consistent and logical form"
+  
+- Class: text
+  Output: "A Project is a folder, with subfolders, containing a <Project name>.Rproj file. (<Project name> is the name of your project)"
+
+- Class: text
+  Output: "When you create a new project or open a .Rproj project file, RStudio will restart in that project directory with all the environment and history from that previous session. "
+  
+- Class: video
+  Output: "A video walk through for creating projects is available. Would you like to watch that now?"
+  VideoLink: //todo
+  
+- Class: text
+  Output: "Create and open a new project called myProject. When you do so this session will close. Open the new project then resume with lesson 'Projects and Data Management'"
+  

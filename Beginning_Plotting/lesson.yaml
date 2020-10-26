@@ -1,0 +1,217 @@
+- Class: meta
+  Course: R_Programming_Alt
+  Lesson: Beginning Plotting
+  Author: Dr David Martin
+  Type: Standard
+  Organization: University of Dundee
+  Version: 2.4.5
+
+- Class: text
+  Output: In this lesson we will introduce the plotting functions in R and how to generate plots from your data.
+
+- Class: text
+  Output: To create a plot, first we need some data. This will have already been loaded into the lesson for you.
+
+- Class: text
+  Output: The dataset is, rather unoriginally, called dataset and is physical data on athletes from the Australian Institute of Sport.
+
+- Class: cmd_question
+  Output: 
+    Which fields are present in the dataset?
+
+    Type names(dataset)
+  CorrectAnswer: names(dataset)
+  AnswerTests: omnitest(correctExpr='names(dataset)')
+  Hint: Follow the instructions, ensuring you have not made any typos.
+  
+- Class: cmd_question
+  Output: 
+    What type of fields are present in the dataset? This will give the field name, the type, and the first few values from each column.
+
+    Type str(dataset)
+  CorrectAnswer: str(dataset)
+  AnswerTests: omnitest(correctExpr='str(dataset)')
+  Hint: Follow the instructions, ensuring you have not made any typos.
+  
+- Class: mult_question
+  Output: 
+    Look at the outut of the last command.
+    Which of the following is the data type of the column Weight?
+  AnswerChoices: Integer (whole number); Floating point number (Decimal); Text; Factor (category)
+  CorrectAnswer: 'Floating point number (Decimal)'
+  AnswerTests: omnitest(correctVal='Floating point number (Decimal)')
+  Hint: The str(dataset) command lists each column with their type.
+
+- Class: text
+  Output: It is important to ensure your data has read in correctly. We will look at changing data types later.
+
+- Class: text
+  Output: The first plot we are going to do is a simple scatter plot.
+
+- Class: cmd_question
+  Output: Let's plot the height against the weight. Enter the command plot(dataset$Height, dataset$Weight)
+  CorrectAnswer: plot(dataset$Height, dataset$Weight)
+  AnswerTests: omnitest(correctExpr='plot(dataset$Height, dataset$Weight)')
+  Hint: Make sure you spell the names correctly. Height and Weight are both capitalised
+
+
+- Class: cmd_question
+  Output: Note which appears on the x-axis and which on the y-axis. Try swapping the two axes.
+  CorrectAnswer: plot(dataset$Weight, dataset$Height)
+  AnswerTests: omnitest(correctExpr='plot(dataset$Weight, dataset$Height)')
+  Hint: The plot command is of the form plot(Xdata, Ydata, options). Ensure the data is listed in the order X, Y.
+
+- Class: cmd_question
+  Output: 
+    This is great but the axis labels are a bit off. We can add a label to the x axis with the option xlab.
+
+    This appears inside the plot command like\n\n 
+    plot(X, Y, xlab='X axis label')\n\n
+
+    Try adding the axis label for Weight like this\n\n
+    plot(dataset$Weight, dataset$Height, xlab="Weight (kg)")\n\n
+    Note that the text is between quotes and all the parameters (data and options) are separated by commas.
+  CorrectAnswer: plot(dataset$Weight, dataset$Height, xlab="Weight (kg)")
+  AnswerTests: omnitest(correctExpr='plot(dataset$Weight, dataset$Height, xlab="Weight (kg)")')
+  Hint: The plot command is of the form plot(Xdata, Ydata, options). Ensure the data is listed in the order X, Y, options and that they are separated by commas. All text should be in between quotes.
+
+
+
+- Class: cmd_question
+  Output: The Y axis label is set with the parameter ylab. Repeat the plot command from before but this time include the correct option to set the y axis label to "Height (cm)"
+
+  CorrectAnswer: plot(dataset$Weight, dataset$Height, xlab="Weight (kg)", ylab="Height (cm)")
+  AnswerTests: expr_uses_func('plot'); check_plot_params(c('xlab','ylab'))
+  Hint: The plot command is of the form plot(Xdata, Ydata, options). Ensure the data is listed in the order X, Y, options and that they are separated by commas. All text should be in between quotes.
+
+- Class: text
+  Output: 
+    So far we have been able to plot the data with custom axis labels.
+    We can also set the axis limits with xlim and ylim.
+
+- Class: cmd_question
+  Output: 
+    We set axis limits with the xlim or ylim parameter and a list like this\n\n
+    xlim=c(start, end)\n\n
+    where start and end are the range we want to plot.
+    Set the x-axis limits to only show the data where the Weight is between 60 and 100 kilos by adding the option xlim=c(60,100)\n\n
+    Remember that options go inside the plot command.
+  CorrectAnswer: plot(dataset$Weight, dataset$Height, xlab="Weight (kg)", ylab = "Height (cm)")
+  AnswerTests: expr_uses_func('plot');check_plot_params(c('xlab','ylab','xlim'))
+  Hint: The plot command is of the form plot(Xdata, Ydata, options). Ensure the data is listed in the order X, Y, options and that they are separated by commas. All text should be in between quotes Every open parenthesis ( should be matched with a close parenthesis ).
+
+
+- Class: text
+  Output: We can now customise the size and labels of our plot. Let's now filter the data we want to add.
+
+
+- Class: cmd_question
+  Output: 
+    To filter data we put a selector after the data definition. So to select the Height for only the female athletes we would use
+
+    dataset$Height[dataset$Gender=='female']
+
+    We have to apply the same selector to each column.
+    Enter the command 
+    
+    plot(dataset$Weight[dataset$Gender=='female'], dataset$Height[dataset$Gender=='female'], xlab="Weight (kg)", ylab = "Height (cm)")
+
+  CorrectAnswer: plot(dataset$Weight[dataset$Gender=='female'], dataset$Height[dataset$Gender=='female'], xlab="Weight (kg)", ylab = "Height (cm)")
+
+  AnswerTests: expr_uses_func('plot'); plot_data(c("dataset$Weight[dataset$Gender=='female']", "dataset$Height[dataset$Gender=='female']"))
+
+  Hint: Make sure you use the same selector for both x and y, and that you have two ==, not one.
+
+- Class: cmd_question
+  Output: 
+    We'll now plot the male data on top.
+
+    To add data to a plot we use the points() command. Type
+
+    points(dataset$Weight[dataset$Gender=='male'], dataset$Height[dataset$Gender=='male'])
+
+    Note that we have changed the selector to male.
+  CorrectAnswer: points(dataset$Weight[dataset$Gender=='male'], dataset$Height[dataset$Gender=='male'])
+
+  AnswerTests: expr_uses_func('points'); plot_data(c("dataset$Weight[dataset$Gender=='male']", "dataset$Height[dataset$Gender=='male']"))
+
+  Hint: Make sure you use the same selector for both x and y, and that you have two ==, not one.
+
+- Class: cmd_question
+  Output: 
+    This has plotted the male data but it looks the same as the female data.
+    To distinguish them we can set the plot color with the col option
+    or the plot symbol with the pch option. Both of these options will take numbers and will 
+    then chose a symbol/color from their library. They can also take named symbols.
+
+    We can use both pch and col in both plot() and points() command.
+
+    Add the options to the plot command like this 
+
+    plot(dataset$Weight[dataset$Gender=='female'], dataset$Height[dataset$Gender=='female'], xlab="Weight (kg)", ylab = "Height (cm)", pch=1, col=2)
+
+  CorrectAnswer: plot(dataset$Weight[dataset$Gender=='female'], dataset$Height[dataset$Gender=='female'], xlab="Weight (kg)", ylab = "Height (cm)", pch=1, col=2)
+  AnswerTests: expr_uses_func('plot'); check_plot_params(c('pch','col'));plot_data(c("dataset$Weight[dataset$Gender=='female']", "dataset$Height[dataset$Gender=='female']"))
+
+  Hint: Make sure you use the same selector for both x and y, and that you have two ==, not one.
+
+- Class: cmd_question
+  Output: Now repeat the points command but adding in the options pch=2 and col=4 to plot the male data.
+  CorrectAnswer: points(dataset$Weight[dataset$Gender=='male'], dataset$Height[dataset$Gender=='male'], pch=2, col=4)
+
+  AnswerTests: expr_uses_func('points'); check_plot_params(c('pch','col'));plot_data(c("dataset$Weight[dataset$Gender=='male']", "dataset$Height[dataset$Gender=='male']"))
+
+  Hint: Make sure you use the same selector for both x and y, and that you have two ==, not one.
+
+- Class: text
+  Output: You can find many more customisation options with the command help(par) and there is a usefulpowerpoint on the VLE.
+
+- Class: text
+  Output: When we have categorical data we can plot it as a bar plot.
+
+- Class: cmd_question
+  Output: 
+    This works best when you have categories of data, known as Factors in R.
+
+    Convert the Gender column to be categorical data with teh command
+
+    dataset$Gender <- as.factor(dataset$Gender)
+  CorrectAnswer: dataset$Gender <- as.factor(dataset$Gender)
+  AnswerTests: omnitest(correctExpr='dataset$Gender <- as.factor(dataset$Gender)')
+  Hint: Ensure you type the command correctly. Check the case of the names.
+
+- Class: cmd_question
+  Output: Do the same for the Sport column
+  CorrectAnswer: dataset$Sport <- as.factor(dataset$Sport)
+  AnswerTests: omnitest(correctExpr='dataset$Sport <- as.factor(dataset$Sport)')
+  Hint: Ensure you type the command correctly. Check the case of the names.
+
+- Class: cmd_question
+  Output: 
+    Now create a boxplot for Height vs Gender. We do this using a formula with a ~ of the form
+
+    Continuous ~ Categorical
+
+    try this with 
+
+    boxplot(dataset$Height~dataset$Sport)
+  CorrectAnswer: boxplot(dataset$Height~dataset$Sport)
+  AnswerTests: omnitest(correctExpr='boxplot(dataset$Height~dataset$Sport)')
+  Hint: Ensure you type the command correctly. Check the case of the names.
+
+- Class: cmd_question
+  Output: To plot by more than one category join the categories with a + like 
+
+boxplot(dataset$Height~dataset$Sport+dataset$Gender)
+  CorrectAnswer: boxplot(dataset$Height~dataset$Sport+dataset$Gender)
+  AnswerTests: omnitest(correctExpr='boxplot(dataset$Height~dataset$Sport+dataset$Gender)')
+  Hint: Ensure you type the command correctly. Check the case of the names.
+
+- Class: text
+  Output: The order is important here. Sport+Gender groups the output differently to Gender+Sport
+
+- Class: text
+  Output: This lesson should have got you started with the basic plotting functions in R. They are extremely powerful but very picky about correct formatting. You will find it helpful to use a script file to build up and test the commands for a plot. 
+
+- Class: text
+  Output: However, when you have a script you can reuse it very quickly on new data. 

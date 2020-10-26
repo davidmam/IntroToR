@@ -1,0 +1,137 @@
+- Class: meta
+  Course: R_Programming_Alt
+  Lesson: Projects and Data Management
+  Author: David Martin
+  Type: Standard
+  Organization: University of Dundee
+  Version: 2.4.5
+
+- Class: text
+  Output: "This tutorial will take you through setting up and using RStudio Projects. When you see the elipsis (...) press the [ENTER] key to continue"
+
+- Class: text_question
+  Output: "You should have created a project myProject and be working in that project. Type Y if this is the case"
+  CorrectAnswer: 'Y'
+  AnswerTests: file_exists('myProject.Rproj')
+  Hint: "Make sure you have created and opened the project 'myProject'"
+
+- Class: text
+  Output: 
+    This is an empty project. It will keep track of all the commands you write, all the variables you create and so on.
+    However, a single place to put everything can easily get disorganised. We will create some folders to organise our data and our analysis.
+
+
+- Class: text_question
+  Output: Create a folder (subdirectory) in your main project directory (myProject) and call it 'data' (without the quotes). You can use any appropriate method to do this, such as using the file browser. Type Y when done.
+  CorrectAnswer: Y
+  AnswerTests: folder_exists('data')
+  Hint: I can't find that folder. Check it is in your myProject folder and is exactly 'data' (not 'Data')
+
+- Class: text
+  Output: 
+    This is where we will save our raw data. We will treat our raw data as read only 
+    so we can always repeat our analysis.
+
+- Class: text_question
+  Output: We also need to create a folder to hold our pocessed data. These would be cleaned data files, intermediate results and so on. Create a folder 'processed_data' and enter 'Y' when done
+  CorrectAnswer: Y
+  AnswerTests: folder_exists('processed_data')
+  Hint: I can't find that folder. Ensure that it is named correctly and in the project folder .
+
+- Class: text
+  Output: 
+    There is one more essential folder which is where we will keep the code we use to perform our analysis.
+    This will be in the form of R scripts (filename.R) or R notebooks (filename.Rmd) that keep a record of the commands we use and allow the analysis to be repeated.
+
+
+- Class: text_question
+  Output: Create a folder 'analysis' in the project directory and enter 'Y' when done.
+  CorrectAnswer: Y
+  AnswerTests: folder_exists('analysis')
+  Hint: I can't find the 'analysis' folder. Ensure the name is spelled correctly and it is in the Project folder.
+
+
+- Class: text
+  Output: 
+    You may want to add more folders depending on your project.
+    You may want 'reports' for output, which may have subfolders for each figure if required, 'documents' which would have papers etc. relevant to the project and so on
+
+- Class: video
+  Output: As your project gets more complex you may need to structure your data folder and other folders. Would you like to view some guidelines on organising your data now?
+  VideoLink: http://address.of.video
+
+- Class: text
+  Output: You should now have a well organised project. It is time to copy some data files into your data folder and get cracking.
+
+
+- Class: text
+  Output: When you close a project it will save all the commands you have used to the file .Rhistory and all the variables to the file .RData. 
+
+
+- Class: text
+  Output: When you open the project (by changing to it with the project selector on the top right of the window or by double clicking on the projectname.Rproj file) RStudio will reload your history and data so you will be back exactly where you left off, with your current working directory set to the project folder.
+
+
+- Class: text
+  Output: 
+    We have now created the bare bones of our project. We will now create a script 
+    file so we can easily repeat our analysis.
+
+- Class: text
+  Output: 
+    In the top left corner of the RStudio window is a 'new file' icon (white document with a big green and white + sign). 
+    Click on this and open a new R Script. This should be the top option. 
+    You could alternatively use the File > New menu options.
+
+
+- Class: text
+  Output: 
+    A new editor tab will have opened with a file called 'Untitled' or similar.
+
+    In this file enter the text
+
+
+    myvar = c(1,2,3,4)
+    
+    
+    This will create a variable myvar containing the list of values 1,2,3,4
+
+
+- Class: cmd_question
+  Output: 
+    At the moment this is just a command that has not been run. 
+    Click on the line you have just written so that the cursor is there, then press 
+    the CTRL and ENTER keys together.
+  CorrectAnswer: myvar = c(1,2,3,4)
+  AnswerTests: omnitest(correctExpr='myvar = c(1,2,3,4)')
+  Hint: Did you write the command exactly as myvar = c(1,2,3,4) then press CTRL and ENTER together?
+
+- Class: text
+  Output: 
+    That is great, you have run the command from the script file.
+    
+    We will now save the script file in your analysis directory.
+
+- Class: cmd_question
+  Output: 
+    Use the File > Save As menu option or the save icon to save your script file in the analysis folder as 'myscript.R'
+    
+    Enter Y when done.
+  CorrectAnswer: Y
+  AnswerTests: file_exists('analysis/myscript.R')
+  Hint: I can't find the script file. Did you save it with the correct name and in the correct folder?
+
+- Class: text
+  Output:
+    In this lesson you have been able to create a set of folders for managing your project
+    
+    You have been able to create a script file in which you record your commands.
+    This allows your project to be reproducible.
+    
+    You can edit the script files as you need to correct errors or improve the outputs
+    
+
+- Class: text
+  Output:
+    For more complicated projects you may wish to consider using version control.
+    This will be covered in a separate lesson.

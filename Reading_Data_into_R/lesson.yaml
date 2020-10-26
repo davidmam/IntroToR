@@ -1,0 +1,114 @@
+- Class: meta
+  Course: R_Programming_Alt
+  Lesson: Reading Data into R
+  Author: Dr David Martin
+  Type: Standard
+  Organization: University of Dundee
+  Version: 2.4.5
+
+- Class: text
+  Output: 
+    In this lesson we are going to learn how to prepare and read data in to R.
+    R has many ways to import data. We are going to preapre and read data in from a 
+    text file where each line is separated into columns.
+
+- Class: text
+  Output: 
+    The process is similar for reading in from Excel spreadsheets, we just need to
+    select the correct option to read from Excel.
+
+- Class: text
+  Output: 
+    This lesson assumes that you have already taken the 'Projects and Data Management' lesson and are working in the myProject project.
+
+    If not, then please do take that lesson if you have not done so, open the project myProject and restart this lesson.
+
+- Class: cmd_question
+  Output: 
+    We need to download some data before we can read it in. Find and download the file 'treerings.txt' on the VLE.
+    It should be saved in the folder 'myProject/data'.
+
+    Press Y when you have done this
+  CorrectAnswer: Y
+  AnswerTests: file_exists('data/treerings.txt')
+  Hint: I can't find the file you downloaded. Have you saved it in the correct folder with exactly the same name?
+
+- Class: mult_question
+  Output: Now you have the datafile downloaded it is time to read it into the current R environment.
+
+Find the 'Import Dataset' button and chose the second Text file import option. 
+Select the correct option from the list below.
+  AnswerChoices: From SPSS...;From Text (base); From Excel...;From Text (readr);From SAS...; From Stata...;
+  CorrectAnswer: 4
+  AnswerTests: omnitest(correctVal='4')
+  Hint: Are you looking at the drop down from Import Dataset? You should be looking for the From Text (readr) option
+  
+
+- Class: text
+  Output: 
+    There are several steps to follow now. 
+
+    First browse to and open the data file 'treerings.txt'
+
+- Class: text
+  Output: 
+    The data is currently read as one column because the column separator (delimiter) is not set correctly.
+    
+    Set the value of Delimiter to Tab
+
+- Class: text
+  Output: 
+    The data is now correctly split into columns. 
+
+    This data is well formatted and starts at the top of the file. We do not need to skip unneeded lines with the Skip option.
+
+- Class: text
+  Output: Change the Name of the dataset to import to 'mydata'
+
+- Class: text
+  Output: 
+    Before clicking the Import button, you may want to copy the command in the 'Code Preview' to your script file so the command can be repeated without having to go through all the option setting.
+
+    You will not need to copy the View(mydata) command.
+    
+
+
+- Class: cmd_question
+  Output: Click Import and press Y when done.
+  CorrectAnswer: Y
+  AnswerTests: var_exists('mydata')
+  Hint: Did you change the Name to 'mydata' and click Import? 
+
+- Class: cmd_question
+  Output: 
+    Let's take a look at the data we have imported. The Import wizard will have opened tab with teh data shown
+
+    To view an individual column we first need to find the column names.
+    Type the command 
+
+    names(mydata)
+  CorrectAnswer: names(mydata)
+  AnswerTests: omnitest(correctExpr='names(mydata)')
+  Hint: Make sure you have no typos and the letters are the correct case. names is not the same as Names.
+
+
+- Class: cmd_question
+  Output: Now view the data for the Direction. Type mydata$Direction
+  CorrectAnswer: mydata$Direction
+  AnswerTests: omnitest(correctExpr='mydata$Direction')
+  Hint: Make sure you have no typos and the letters are the correct case. 
+
+- Class: cmd_question
+  Output: Now look at the data in the Distance column
+  CorrectAnswer: mydata$Distance
+  AnswerTests: omnitest(correctExpr='mydata$Distance')
+  Hint: Make sure you have no typos and the letters are the correct case. 
+
+- Class: text
+  Output: You can now read data into R and process it. There is more to learn with options that can be tweaked, but with well prepared data this will get you started.
+
+- Class: video
+  Output: 
+    If you are preparing your own data then aim to record it in long format. This will make further analysis easier.
+    If you would like to watch a video explaining long and wide format then select Yes below.
+  VideoLink: http://address.of.video

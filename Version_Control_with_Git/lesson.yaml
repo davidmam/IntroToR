@@ -1,0 +1,63 @@
+- Class: meta
+  Course: R_Programming_Alt
+  Lesson: Version Control with Git
+  Author: Dr David Martin
+  Type: Standard
+  Organization: University of Dundee
+  Version: 2.4.5
+
+- Class: text
+  Output: This lesson will introduce you to using the Git version control system with R Studio
+
+
+- Class: mult_question
+  Output: Have you ever done any of the following?
+    
+  
+  AnswerChoices: |
+    Saved a new copy of a file to make sure you didn't lose your previous working one;
+    Worked on the same file in two places and ended up with two different versions;
+    Worked on a file with colleagues, each of whom made different changes and then you had to put them back together;
+    Forgotten exactly which version of the script you used to create a figure or table;
+    Lost the version of the script that was used to a table or figure.;
+    More than one of the above
+  CorrectAnswer: Expression or Value
+  AnswerTests: anyanswer()
+  Hint: We've all been there or will be there. Look into your future and answer for the future you.
+
+- Class: text
+  Output: |
+    Version Control helps with many of these issues. 
+    It allows you to keep track of changes in your scripts, return to previous versions and work collaboratively. 
+
+- Class: text
+  Output: >
+    The version control system we will be using is called Git. It is widely used in academia and industry.
+    It can be intimidating at first, but will soon become a natural process of 
+    doing your work and recording your progress.
+    It may even save your skin a few times!
+
+- Class: video
+  Output: |
+    In programming environments, Git is typically used from the command line. RStudio has Git built in to make it easier to use with your projects.
+
+    At first you will use Git on your local machine, and then can collaborate with others using services such as Github or Bitbucket.
+    Would you like to view a video introduction to Git on your local machine?
+  VideoLink: https://video.dundee.ac.uk/V/Video?v=3215&node=7942&a=1645775730&autoplay=1
+
+- Class: video
+  Output: Would you like to view a video introduction to using Git to collaborate via a remote server?
+  VideoLink: https://video.dundee.ac.uk/V/Video?v=3214&node=7941&a=1489877847&autoplay=1
+
+- Class: text
+  Output: Instead of typing all these commands, RStudio makes a convenient interface to using Git.
+
+
+- Class: video
+  Output: Would you like to watch a video on using Git with RStudio?
+  VideoLink: http://address.of.video
+
+- Class: figure
+  Output: A test figure
+  Figure: figure1.R
+  FigureType: new
