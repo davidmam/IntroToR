@@ -23,7 +23,7 @@
   
 - Class: video
   Output: "A video walk through for creating projects is available. Would you like to watch that now?"
-  VideoLink: //todo
+  VideoLink: https://video.dundee.ac.uk/V/Video?v=38157&node=219935&a=1526075777&autoplay=1
   
 - Class: text
   Output: "Create and open a new project called myProject. When you do so this session will close. Open the new project then resume with lesson 'Projects and Data Management'"

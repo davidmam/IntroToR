@@ -54,6 +54,11 @@
   AnswerTests: omnitest(correctExpr='plot(dataset$Height, dataset$Weight)')
   Hint: Make sure you spell the names correctly. Height and Weight are both capitalised
 
+- Class: figure
+  Output: This is the output you should see
+  Figure: Plot1.R
+  FigureType: new
+
 
 - Class: cmd_question
   Output: Note which appears on the x-axis and which on the y-axis. Try swapping the two axes.
@@ -61,20 +66,30 @@
   AnswerTests: omnitest(correctExpr='plot(dataset$Weight, dataset$Height)')
   Hint: The plot command is of the form plot(Xdata, Ydata, options). Ensure the data is listed in the order X, Y.
 
+- Class: figure
+  Output: This is the output you should see
+  Figure: Plot2.R
+  FigureType: new
+
+
 - Class: cmd_question
   Output: 
     This is great but the axis labels are a bit off. We can add a label to the x axis with the option xlab.
 
-    This appears inside the plot command like\n\n 
-    plot(X, Y, xlab='X axis label')\n\n
+    This appears inside the plot command like 
+    plot(X, Y, xlab='X axis label')
 
-    Try adding the axis label for Weight like this\n\n
-    plot(dataset$Weight, dataset$Height, xlab="Weight (kg)")\n\n
+    Try adding the axis label for Weight like this
+    plot(dataset$Weight, dataset$Height, xlab="Weight (kg)")
     Note that the text is between quotes and all the parameters (data and options) are separated by commas.
   CorrectAnswer: plot(dataset$Weight, dataset$Height, xlab="Weight (kg)")
   AnswerTests: omnitest(correctExpr='plot(dataset$Weight, dataset$Height, xlab="Weight (kg)")')
   Hint: The plot command is of the form plot(Xdata, Ydata, options). Ensure the data is listed in the order X, Y, options and that they are separated by commas. All text should be in between quotes.
 
+- Class: figure
+  Output: This is the output you should see
+  Figure: Plot3.R
+  FigureType: new
 
 
 - Class: cmd_question
@@ -84,6 +99,11 @@
   AnswerTests: expr_uses_func('plot'); check_plot_params(c('xlab','ylab'))
   Hint: The plot command is of the form plot(Xdata, Ydata, options). Ensure the data is listed in the order X, Y, options and that they are separated by commas. All text should be in between quotes.
 
+- Class: figure
+  Output: This is the output you should see
+  Figure: Plot4.R
+  FigureType: new
+
 - Class: text
   Output: 
     So far we have been able to plot the data with custom axis labels.
@@ -91,10 +111,10 @@
 
 - Class: cmd_question
   Output: 
-    We set axis limits with the xlim or ylim parameter and a list like this\n\n
-    xlim=c(start, end)\n\n
+    We set axis limits with the xlim or ylim parameter and a list like this
+    xlim=c(start, end)
     where start and end are the range we want to plot.
-    Set the x-axis limits to only show the data where the Weight is between 60 and 100 kilos by adding the option xlim=c(60,100)\n\n
+    Set the x-axis limits to only show the data where the Weight is between 60 and 100 kilos by adding the option xlim=c(60,100)
     Remember that options go inside the plot command.
   CorrectAnswer: plot(dataset$Weight, dataset$Height, xlab="Weight (kg)", ylab = "Height (cm)")
   AnswerTests: expr_uses_func('plot');check_plot_params(c('xlab','ylab','xlim'))
@@ -155,6 +175,12 @@
 
   Hint: Make sure you use the same selector for both x and y, and that you have two ==, not one.
 
+- Class: figure
+  Output: This is the output you should see
+  Figure: Plot5.R
+  FigureType: new
+
+
 - Class: cmd_question
   Output: Now repeat the points command but adding in the options pch=2 and col=4 to plot the male data.
   CorrectAnswer: points(dataset$Weight[dataset$Gender=='male'], dataset$Height[dataset$Gender=='male'], pch=2, col=4)
@@ -162,6 +188,11 @@
   AnswerTests: expr_uses_func('points'); check_plot_params(c('pch','col'));plot_data(c("dataset$Weight[dataset$Gender=='male']", "dataset$Height[dataset$Gender=='male']"))
 
   Hint: Make sure you use the same selector for both x and y, and that you have two ==, not one.
+
+- Class: figure
+  Output: This is the output you should see
+  Figure: Plot6.R
+  FigureType: new
 
 - Class: text
   Output: You can find many more customisation options with the command help(par) and there is a usefulpowerpoint on the VLE.
@@ -173,7 +204,7 @@
   Output: 
     This works best when you have categories of data, known as Factors in R.
 
-    Convert the Gender column to be categorical data with teh command
+    Convert the Gender column to be categorical data with the command
 
     dataset$Gender <- as.factor(dataset$Gender)
   CorrectAnswer: dataset$Gender <- as.factor(dataset$Gender)
@@ -199,13 +230,31 @@
   AnswerTests: omnitest(correctExpr='boxplot(dataset$Height~dataset$Sport)')
   Hint: Ensure you type the command correctly. Check the case of the names.
 
-- Class: cmd_question
-  Output: To plot by more than one category join the categories with a + like 
+- Class: figure
+  Output: This is the output you should see
+  Figure: Plot7.R
+  FigureType: new
 
-boxplot(dataset$Height~dataset$Sport+dataset$Gender)
+- Class: cmd_question
+  Output: 
+    To plot by more than one category join the categories with a + like 
+ 
+    boxplot(dataset$Height~dataset$Sport+dataset$Gender)
   CorrectAnswer: boxplot(dataset$Height~dataset$Sport+dataset$Gender)
   AnswerTests: omnitest(correctExpr='boxplot(dataset$Height~dataset$Sport+dataset$Gender)')
   Hint: Ensure you type the command correctly. Check the case of the names.
+
+- Class: figure
+  Output: This is the output you should see
+  Figure: Plot8.R
+  FigureType: new
+
+- Class: cmd_question
+  Output: The X axis labels are not very readable. Try adding the following options to rotate them (las=2) and to make them a bit smaller (cex.axis=0.5)
+
+  CorrectAnswer: boxplot(dataset$Height~dataset$Sport+dataset$Gender, las=2, cex.axis=0.5)
+  AnswerTests: check_plot_params(c('las', 'cex.axis')); expr_uses_func('boxplot')
+  Hint: boxplot(dataset$Height~dataset$Sport+dataset$Gender, las=2, cex.axis=0.5)
 
 - Class: text
   Output: The order is important here. Sport+Gender groups the output differently to Gender+Sport
@@ -215,3 +264,5 @@ boxplot(dataset$Height~dataset$Sport+dataset$Gender)
 
 - Class: text
   Output: However, when you have a script you can reuse it very quickly on new data. 
+
+

@@ -114,8 +114,8 @@ check_plot_params = function( pars){
    found == TRUE
 }
 plot_data <- function (x) {
-   x = getExpr()
+   ex = getExpr()
    found=TRUE
-   found= found &! is.na(paste0(x[0],' *, *',x[1]),x)
+   found= found &! is.na(grep(paste0(x[0],' *, *',x[1]),ex))
    found == TRUE
 }
