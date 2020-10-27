@@ -171,5 +171,6 @@
 
 
 - Class: text
-  Output: Thank you for taking this lesson. You can explore more topics in manipulating data
-or take the lesson 'Reading Data into RStudio'
+  Output: 
+    Thank you for taking this lesson. You can explore more topics in manipulating data
+    or take the lesson 'Reading Data into RStudio'

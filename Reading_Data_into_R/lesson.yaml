@@ -34,10 +34,11 @@
   Hint: I can't find the file you downloaded. Have you saved it in the correct folder with exactly the same name?
 
 - Class: mult_question
-  Output: Now you have the datafile downloaded it is time to read it into the current R environment.
+  Output: 
+    Now you have the datafile downloaded it is time to read it into the current R environment.
 
-Find the 'Import Dataset' button and chose the second Text file import option. 
-Select the correct option from the list below.
+    Find the 'Import Dataset' button and chose the second Text file import option. 
+    Select the correct option from the list below.
   AnswerChoices: From SPSS...;From Text (base); From Excel...;From Text (readr);From SAS...; From Stata...;
   CorrectAnswer: 4
   AnswerTests: omnitest(correctVal='4')
