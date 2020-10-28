@@ -11,5 +11,9 @@
       # can be used for for the purpose, but it also re-evaluates the
       # expression which the user entered, so care must be taken.
 
-file_exists <- function (x) { file.exists(x)}
+file_exists <- function (x) { 
+   e <-get("e",parent.frame())
+   print('Called')
+   file.exists(x)}
+
 folder_exists <- function(x) {dir.exists(x)}

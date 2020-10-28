@@ -3,3 +3,4 @@
       # the user's working directory and thus be accessible to them
       # throughout the lesson.
 
+Y=TRUE

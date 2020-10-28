@@ -9,7 +9,7 @@
 - Class: text
   Output: 
     In this lesson we are going to learn how to prepare and read data in to R.
-    R has many ways to import data. We are going to preapre and read data in from a 
+    R has many ways to import data. We are going to prepare and read data in from a 
     text file where each line is separated into columns.
 
 - Class: text
@@ -23,15 +23,16 @@
 
     If not, then please do take that lesson if you have not done so, open the project myProject and restart this lesson.
 
-- Class: cmd_question
+- Class: text_question
   Output: 
     We need to download some data before we can read it in. Find and download the file 'treerings.txt' on the VLE.
     It should be saved in the folder 'myProject/data'.
 
     Press Y when you have done this
-  CorrectAnswer: Y
-  AnswerTests: file_exists('data/treerings.txt')
+  CorrectAnswer: 'Y'
+  AnswerTests: treerings_file_exists()
   Hint: I can't find the file you downloaded. Have you saved it in the correct folder with exactly the same name?
+
 
 - Class: mult_question
   Output: 
@@ -113,3 +114,5 @@
     If you are preparing your own data then aim to record it in long format. This will make further analysis easier.
     If you would like to watch a video explaining long and wide format then select Yes below.
   VideoLink: https://video.dundee.ac.uk/V/Video?v=38208&node=220060&a=83630836&autoplay=1
+
+
