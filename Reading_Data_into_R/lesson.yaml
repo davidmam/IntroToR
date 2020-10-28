@@ -41,7 +41,7 @@
     Find the 'Import Dataset' button and chose the second Text file import option. 
     Select the correct option from the list below.
   AnswerChoices: From SPSS...;From Text (base); From Excel...;From Text (readr);From SAS...; From Stata...;
-  CorrectAnswer: 'From Text (readr)''
+  CorrectAnswer: 'From Text (readr)'
   AnswerTests: omnitest(correctVal='From Text (readr)')
   Hint: Are you looking at the drop down from Import Dataset? You should be looking for the From Text (readr) option
   
