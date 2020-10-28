@@ -75,10 +75,10 @@
     
 
 
-- Class: cmd_question
+- Class: text_question
   Output: Click Import and press Y when done.
-  CorrectAnswer: Y
-  AnswerTests: var_exists('mydata')
+  CorrectAnswer: 'Y'
+  AnswerTests: mydata_exists()
   Hint: Did you change the Name to 'mydata' and click Import? 
 
 - Class: cmd_question

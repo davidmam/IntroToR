@@ -107,7 +107,9 @@ treerings_file_exists <- function () { file.exists('data/treerings.txt');
    }
 folder_exists <- function(x) {dir.exists(x)}
 
-var_exists <- function(x){
+mydata_exists <- function () {var_exists_('mydata')}
+
+var_exists_ <- function(x){
    val = FALSE
    try({
       val <- get(x, globalenv())
