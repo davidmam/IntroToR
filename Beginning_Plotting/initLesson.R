@@ -8,5 +8,5 @@
   )
 }
 
-suppressMessages(dataset <- read_table2(file.path(.get_course_path(), "Intro_To_R", "Beginning_Plotting", "sport.txt")))
+suppressMessages(dataset <- read_table2(file.path(.get_course_path(), "IntroToR", "Beginning_Plotting", "sport.txt")))
 dataset$Sport <- as.factor(dataset$Sport)
